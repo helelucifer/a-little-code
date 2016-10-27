@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>层级选择器</title>
+    <script type="text/javascript" src="jquery-1.11.3.js"></script>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            margin: 5px;
+            background-color: aquamarine;
+            border: 1px solid #000;
+            font-size: 15px;
+            float: left;
+        }
+        div.inner{
+            width: 50px;
+            height: 50px;
+            background-color: burlywood;
+            font-size: 12px;
+        }
+         .hide{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<button id="btn1">后代选择器（紫）</button>
+<button id="btn2">直接子类选择器（黄）</button>
+<button id="btn3">s1+s2相邻元素选择器（红）</button>
+<button id="btn4">s1~s2（蓝）</button>
+<button id="btn5">next(绿)</button>
+<button id="btn6">nextAll(白)</button>
+<button id="btn7">查找所有同辈div（粉）</button>
+<br>
+<div id="one" class="cd1">
+    创建ajax过程:<br>
+    <div class="inner">步骤</div>
+</div>
+<div id="two" class="cd1" title="div_title">
+    创建一个异步调用对象 <br>
+    创建一个新的http请求，并指定其请求方法<br>
+    设置响应http请求状态变化的函数<br>
+    发送http请求<br>
+    获取异步调用返回的数据<br>
+    使用js和DOM实现局部刷新<br>
+    <div class="inner" title="md1">步骤</div>
+    <div class="inner" title="md2">步骤</div>
+</div>
+<div class="cd1">
+    <div class="inner" title="md1">步骤</div>
+    <div class="inner" title="md1">步骤</div>
+    <div class="inner" title="md1">步骤</div>
+    <div class="inner" title="md1"></div>
+</div>
+<div class="none" style="display: none;">
+    隐藏的div
+</div>
+<div class="hide">
+    显示的div
+</div>
+<div >
+    有隐藏表单域的div
+    <input type="hidden" size="10">
+</div>
+<div>
+    正在执行动画的div
+</div>
+
+<script>
+    $("#btn1").click(function () {
+        $("div div").css("background","purple");
+    });
+
+    $("#btn2").click(function () {
+        $("body>div").css("background","yellow");
+    });
+
+
+    //只针对s1之后的s2元素（兄弟节点）
+    $("#btn3").click(function () {
+        $("#two+div").css("background","red");
+    });
+
+    //只针对s1之后的所有s2元素（兄弟节点）
+    $("#btn4").click(function () {
+        $("#two~div").css("background","blue");
+    });
+
+    //推荐使用下面三种
+    $("#btn5").click(function () {
+        $("#two").next("div").css("background","green");
+    });
+
+    $("#btn6").click(function () {
+        $("#two").nextAll("div").css("background","white");
+    });
+
+    //找到所有的兄弟节点
+    $("#btn7").click(function () {
+        $("#two").siblings("div").css("background","pink");
+    });
+</script>
+</body>
+</html>

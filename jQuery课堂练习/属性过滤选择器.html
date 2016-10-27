@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>属性过滤选择器</title>
+    <script type="text/javascript" src="jquery-1.11.3.js"></script>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            margin: 5px;
+            background-color: aquamarine;
+            border: 1px solid #000;
+            font-size: 15px;
+            float: left;
+        }
+        div.inner{
+            width: 50px;
+            height: 50px;
+            background-color: burlywood;
+            font-size: 12px;
+        }
+         .hide{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<button id="btn1">黄[attribute]</button>
+<button id="btn2">红[attribute=value]</button>
+<button id="btn3">绿[attribute!=value]</button>
+<button id="btn4">蓝[attribute^=value]</button>
+<button id="btn5">白[attribute$=value]</button>
+<button id="btn6">粉[attribute*=value]</button>
+<button id="btn7">紫[selector1][selector2][selectorN]</button>
+<br>
+<div id="one" class="cd1">
+    创建ajax过程:<br>
+    <div class="inner">步骤</div>
+</div>
+<div id="two" class="cd1" title="div_title">
+    创建一个异步调用对象 <br>
+    创建一个新的http请求，并指定其请求方法<br>
+    设置响应http请求状态变化的函数<br>
+    发送http请求<br>
+    获取异步调用返回的数据<br>
+    使用js和DOM实现局部刷新<br>
+    <div class="inner" title="md1">步骤</div>
+    <div class="inner" title="md2">步骤</div>
+</div>
+<div class="cd1">
+    <div class="inner" title="md1">步骤</div>
+    <div class="inner" title="md1">步骤</div>
+    <div class="inner" title="md22">步骤</div>
+    <div class="inner" title="md22"></div>
+</div>
+<div class="none" style="display: none;">
+    隐藏的div
+</div>
+<div class="hide">
+    显示的div
+</div>
+<div >
+    有隐藏表单域的div
+    <input type="hidden" size="10">
+</div>
+<div>
+    正在执行动画的div
+</div>
+
+<script>
+    $("#btn1").click(function () {
+        $("div[title]").css("background","yellow");
+    });
+
+    $("#btn2").click(function () {
+        $("div[title='div_title']").css("background","red");
+    });
+
+    $("#btn3").click(function () {
+        $("div[title!='div_title']").css("background","green");
+    });
+
+    //找到所有title开头是md的div
+    $("#btn4").click(function () {
+        $("div[title^='md']").css("background","blue");
+    });
+
+
+    //找到所有title结尾是2的div
+    $("#btn5").click(function () {
+        $("div[title$='2']").css("background","white");
+    });
+
+    //找到所有title中包含d的div
+    $("#btn6").click(function () {
+        $("div[title*='d']").css("background","pink");
+    });
+
+    //找到所有包含id并且title中包含d的div
+    $("#btn7").click(function () {
+        $("div[id][title*='d']").css("background","purple");
+    });
+</script>
+</body>
+</html>

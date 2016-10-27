@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jquery练习</title>
+    <script type="text/javascript" src="jquery-1.11.3.js"></script>
+</head>
+<body>
+<p id="p1">你好，欢迎！</p><br>
+<button id="btn1">点我会很尴尬</button>
+<script type="text/javascript">
+//    var p1=document.getElementById('p1');
+//    var btn1=document.getElementById('btn1');
+//
+//    btn1.onclick=function () {
+//        p1.innerHTML="哈哈哈哈";
+//    }
+//
+
+//链式访问jquery对象
+    $("#btn1").click(function ()
+    {
+        $("#p1").html("啦啦啦啦啦");
+    });
+
+    //强制从jquery对象转换成DOM对象
+//    $("#btn").get(0).onclick=function () {
+//    };
+//
+//    //从dom转换成热那个jquery对象转换来操作
+//    var btn1=document.getElementById('btn1');
+//    $(btn1).click(function () {
+//        $("#p1").html("啦啦啦啦啦");
+//    });
+
+</script>
+</body>
+</html>

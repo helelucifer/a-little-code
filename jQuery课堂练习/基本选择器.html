@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>基本选择器</title>
+    <script type="text/javascript" src="jquery-1.11.3.js"></script>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            margin: 5px;
+            background-color: aquamarine;
+            border: 1px solid #000;
+            font-size: 15px;
+            float: left;
+        }
+        div.inner{
+            width: 50px;
+            height: 50px;
+            background-color: burlywood;
+            font-size: 12px;
+        }
+         .hide{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<button id="btn1">ID选择器（黄）</button>
+<button id="btn2">元素选择器（绿）</button>
+<button id="btn3">类选择器（红）</button>
+<button id="btn4">通配符选择器（蓝）</button>
+<button id="btn5">合并选择器（白）</button><br>
+<div id="one" class="cd1">
+    创建ajax过程:<br>
+    <div class="inner">步骤</div>
+</div>
+<div id="two" class="cd1" title="div_title">
+    创建一个异步调用对象 <br>
+    创建一个新的http请求，并指定其请求方法<br>
+    设置响应http请求状态变化的函数<br>
+    发送http请求<br>
+    获取异步调用返回的数据<br>
+    使用js和DOM实现局部刷新<br>
+    <div class="inner" title="md1">步骤</div>
+    <div class="inner" title="md2">步骤</div>
+</div>
+<div class="cd1">
+    <div class="inner" title="md1">步骤</div>
+    <div class="inner" title="md1">步骤</div>
+    <div class="inner" title="md1">步骤</div>
+    <div class="inner" title="md1"></div>
+</div>
+<div class="none" style="display: none;">
+    隐藏的div
+</div>
+<div class="hide">
+    显示的div
+</div>
+<div >
+    有隐藏表单域的div
+    <input type="hidden" size="10">
+</div>
+<div>
+    正在执行动画的div
+</div>
+
+<script>
+    $("#btn1").click(function () {
+        $("#one").css("background","yellow");
+    });
+
+    $("#btn2").click(function () {
+        $("div").css("background","green");
+    });
+
+    $("#btn3").click(function () {
+        $(".cd1").css("background","red");
+    });
+
+    $("#btn4").click(function () {
+        $("*").css("background","blue");
+    });
+
+    $("#btn5").click(function  () {
+        $("#one,#two").css("background","white");
+    });
+</script>
+</body>
+</html>

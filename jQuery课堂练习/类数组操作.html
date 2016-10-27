@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>类数组操作</title>
+    <script src="jquery-1.11.3.js"></script>
+</head>
+<body>
+<input type="text" value="val1"><br>
+<input type="text" value="val2"><br>
+<input type="text" value="val3"><br>
+<input type="text" value="val4"><br>
+<input type="text" value="val5"><br>
+<input type="text" value="val6"><br>
+</body>
+
+
+<script>
+    var $inputs=$("input");
+
+    //显示遍历
+    for(var i=0;i<$inputs.length;i++){
+        //获得节点的DOM对象
+        var inp=$inputs[i];
+        console.log("显示遍历"+inp.value);
+    }
+
+    //隐式遍历,定义在构造方法中的实例函数
+    $("input").each(function (index,domElement) {
+        console.log(index+"  "+domElement.value);
+    });
+
+    //隐式遍历，定义在原型上的类函数
+    $.each($inputs,function (index,domNode) {
+        console.log(index+"----"+domNode.value);
+    });
+</script>
+</html>

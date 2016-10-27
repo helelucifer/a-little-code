@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>基本操作</title>
+    <script src="jquery-1.11.3.js"></script>
+</head>
+<body>
+<button id="btn1">html()</button>
+<button id="btn2">val()</button>
+<button id="btn3">text()</button>
+<button id="btn4">attr()</button>
+<button id="btn5">removeAttr()</button>
+
+<input type="text" value="请输入数据" id="infotxt">
+
+<div id="infodiv" class="infocls">
+    这是div的内容
+    <span>这里显示信息</span>
+</div>
+
+<script>
+    $('#btn1').click(function () {
+       $("#infodiv").html("<span>啊哈哈哈哈</span>");
+    });
+
+    $('#btn2').click(function () {
+        $("#infotxt").val("啊哈哈哈哈");
+    });
+
+    $('#btn3').click(function () {
+        $("#infodiv").text("<span>啊哈哈哈哈</span>");
+    });
+
+    //修改属性名，可以间接操作元素样式
+    $('#btn4').click(function () {
+        $("#infodiv").attr("class","aaa");
+    });
+
+    $('#btn5').click(function () {
+        $("#infodiv").removeAttr("class","aaa");
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css的样式操作</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: lightseagreen;
+            float: left;
+            margin: 20px;
+        }
+        .mydiv{
+            width: 300px;
+            height: 300px;
+            background-color: lightcoral;
+            margin: 20px;
+        }
+        .divbox{
+            border: 2px solid black;
+        }
+    </style>
+    <script src="jquery-1.11.3.js"></script>
+</head>
+<body>
+<button id="btn1">attr()</button>
+<button id="btn2">addClass()</button>
+<button id="btn3">removeClass()</button>
+<button id="btn4">toggle()</button>
+<button id="btn5">hasClass()</button>
+<button id="btn6">css()</button>
+<br><br>
+<div id="div1"></div>
+<div id="div2"></div>
+
+<script>
+    $("#btn1").click(function () {
+       $("#div1").attr("class","mydiv");
+    });
+
+    $("#btn2").click(function () {
+        $("#div1").addClass("divbox");
+    });
+
+    $("#btn3").click(function () {
+        //带参数只删除指定的样式，不带参数删除所有的样式
+//        $("#div1").removeClass("divbox");
+        $("#div1").removeClass();
+    });
+
+    //切换样式
+    $("#btn4").click(function () {
+        $("#div1").toggleClass("divbox");
+    });
+
+    //判断是否有特定的样式
+    $("#btn5").click(function () {
+        $("#div1").hasClass("divbox");
+    });
+
+    $("#btn6").click(function () {
+        $("div").css("background","red");
+        $("#div1").css({background:"yellow",border:"1px solid green"});
+    });
+</script>
+</body>
+</html>

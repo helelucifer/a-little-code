@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单对象属性过滤选择器</title>
+    <script type="text/javascript" src="jquery-1.11.3.js"></script>
+</head>
+<body>
+<form name="regForm" id="regForm">
+    姓名：<input type="text" value="姓名">
+    年龄：<input type="text" value="姓名">
+    <br><br>
+    <input type="text" disabled="disabled" value="不可用文本框" ><br><br>
+    <input type="radio" name="lession" value="html">HTML
+    <input type="radio" name="lession" value="java">JAVA
+    <input type="radio" name="lession" value="Android">Android<br><br>
+
+    <input type="checkbox" name="cities" value="长沙">长沙
+    <input type="checkbox" name="cities" value="上海">上海
+    <input type="checkbox" name="cities" value="深圳">深圳
+    <input type="checkbox" name="cities" value="杭州">杭州
+    <input type="checkbox" name="cities" value="北京">北京
+    <br><br>
+    <select name="cat" id="cat">
+        <option value="手机">手机</option>
+        <option value="平板">平板</option>
+        <option value="笔记本">笔记本</option>
+        <option value="PS4">PS4</option>
+    </select>
+    <br><br>
+    <input type="submit" value="提交">
+    <input type="reset" value="重置">
+</form><br>
+<button id="btn1">:enabled</button>
+<button id="btn2">:disabled</button>
+<button id="btn3">:checked</button>
+<button id="btn4">:选择城市</button>
+<button id="btn5">:selected</button>
+
+
+<script>
+    $('#btn1').click(function () {
+       console.log($("input:enabled").val());
+    });
+
+    $('#btn2').click(function () {
+        console.log($("input:disabled").val());
+    });
+
+    $('#btn3').click(function () {
+        console.log($("input[name=lession]:checked").val());
+    });
+
+    $('#btn4').click(function () {
+        console.log($("input[name=cities]:checked").val());
+    });
+
+
+    $('#btn5').click(function () {
+        console.log($("#cat>option:selected").val());
+    });
+</script>
+</body>
+</html>

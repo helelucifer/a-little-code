@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件的模拟</title>
+    <script src="jquery-1.11.3.js"></script>
+</head>
+<body>
+<button class="btn2">点我</button>
+<script>
+    $(".btn2").click(function () {
+        alert("你点击了我");
+    });
+    $(".btn2").trigger("click");
+</script>
+</body>
+</html>

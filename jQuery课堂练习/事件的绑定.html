@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件的绑定</title>
+    <style>
+        .div1{
+            width: 200px;
+            height: 50px;
+            border: 1px solid #c0c0c0;
+            background-color: lime;
+        }
+        .div2{
+            width: 200px;
+            height: 200px;
+            border: 1px solid #c0c0c0 ;
+            background-color: lightcoral;
+            display: none;
+        }
+    </style>
+    <script src="jquery-1.11.3.js"></script>
+</head>
+<body>
+<button class="btn1">解除事件</button>
+<br>
+<div class="div1">
+    <h2>这是第一个标题</h2>
+</div>
+<div class="div2">
+    <p>这是隐藏的内容</p>
+</div>
+
+<script>
+    $(".div1").bind("click",function () {
+      if($(".div2").is(":hidden") )
+      {
+          $(".div2").show(3000);
+      }else {
+          $(".div2").hide(3000);
+      }
+    });
+
+    $(".btn1").click(function () {
+        $(".div1").unbind("click");
+    })
+</script>
+</body>
+</html>

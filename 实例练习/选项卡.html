@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选项卡</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-size: 14px;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+        ul{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .box{
+            width: 500px;
+            margin: 10px auto;
+        }
+        .box ul{
+            overflow: hidden;
+            position: relative;
+            top:1px;
+        }
+        .box ul li{
+            width: 100px;
+            height: 30px;
+            margin-right: 15px;
+            border:1px solid green;
+            float: left;
+            cursor: pointer;
+            text-align: center;
+            line-height: 30px;
+        }
+        .box ul li.select{
+            background-color: #53bcff;
+            border-bottom-color: #53bcff;
+        }
+        .box div{
+            display: none;
+            clear: both;
+            height: 150px;
+            background-color: #53bcff;
+            border:1px solid green;
+            line-height: 150px;
+            text-align: center;
+        }
+        .box div.select{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div class="box" id="box1">
+    <ul>
+        <li>页卡一</li>
+        <li class="select">页卡二</li>
+        <li>页卡三</li>
+    </ul>
+    <div>内容一</div>
+    <div class="select">内容二</div>
+    <div>内容三</div>
+</div>
+<div class="box" id="box2">
+    <ul>
+        <li>页卡一</li>
+        <li class="select">页卡二</li>
+    </ul>
+    <div>内容一</div>
+    <div class="select">内容二</div>
+</div>
+
+<div class="box" id="box3">
+    <ul>
+        <li>页卡一</li>
+        <li class="select">页卡二</li>
+        <li>页卡三</li>
+        <li>页卡四</li>
+    </ul>
+    <div>内容一</div>
+    <div class="select">内容二</div>
+    <div>内容三</div>
+    <div>内容四</div>
+</div>
+<script src="jquery-1.11.3.js"></script>
+<script>
+
+    function tabChange($box) {
+        //var $box=$("#box1");
+        //这个方法返回的是jQuery对象，而get方法返回的是DOM对象
+        var $boxUl=$box.children("ul").eq(0);
+        var $boxLi=$boxUl.children("li");
+        $boxLi.click(function () {
+            console.log(this);//this在事件处理函数中指代事件发生的节点对象，而且是DOM对象，不是jQuery对象
+            $(this).addClass("select")
+                    .siblings()
+                    .removeClass("select");//链式操作
+
+            //获得被点击的li在Li数组中的编号
+            var _index=$(this).index();
+            $(this).parent().nextAll().each(function (index,divDom) {
+                //index就是目前的div在div数组中的编号
+                index===_index?$(divDom).addClass("select"):$(divDom).removeClass("select");
+            });
+        })
+    }
+
+    tabChange($("#box1"));
+    tabChange($("#box2"));
+    tabChange($("#box3"));
+
+</script>
+</body>
+</html>

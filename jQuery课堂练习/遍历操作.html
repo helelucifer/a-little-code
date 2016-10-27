@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>遍历操作</title>
+
+    <script src="jquery-1.11.3.js"></script>
+</head>
+<body>
+<button id="btn1">parent</button>
+<button id="btn2">children</button>
+<button id="btn3">next()</button>
+<button id="btn4">prev()</button>
+<button id="btn5">siblings()</button>
+<button id="btn6">find()</button>
+
+
+
+<br><br>
+<div id="cityDiv">
+    <ul id="cul">
+        <li id="bj">北京</li>
+        <li id="ss">上海</li>
+        <li id="sz">深圳</li>
+        <li id="cs">长沙</li>
+        <li id="gz">广州</li>
+    </ul>
+
+    <ul id="pul">
+        <li id="hn">湖南</li>
+        <li id="gd">广东</li>
+        <li id="hb">湖北</li>
+        <li id="jx">江西</li>
+        <li id="sc">四川</li>
+    </ul>
+</div>
+<div id="infoDiv">
+    <button id="btn7">创建节点</button>
+</div>
+<script>
+    $("#btn1").click(function () {
+        console.log($("ul").parent());
+    });
+
+    $("#btn2").click(function () {
+        console.log($("ul").children());
+
+        var $citys=$("#cul").children();
+        for(var i=0;i<$citys.length;i++)
+        {
+            console.log($citys.get(i));
+        }
+    });
+
+    $("#btn3").click(function () {
+        console.log($("#sz").next().text());
+    });
+
+    $("#btn4").click(function () {
+        console.log($("#sz").prev().text());
+    });
+
+    $("#btn5").click(function () {
+        console.log($("ul").siblings());
+
+        var $citys=$("#pul").siblings();
+        for(var i=0;i<$citys.length;i++)
+        {
+            console.log($($citys[i]).text());
+        }
+    });
+
+    $("#btn6").click(function () {
+        console.log($("ul").find("li"));
+        console.log($("ul li"));
+    });
+
+    $("#btn7").click(function () {
+        //1createPElement创建节点
+        //2给节点添加ID属性
+        //3添加文本节点
+        var $pEl=$("<p></p>")
+                .attr("id","infotxt")
+                .text("这是p标签的内容");
+        //4添加到父节点
+        $("#infoDiv").append($pEl);
+        $("#infoDiv").append($("<p></p>")
+                .attr("id","infotxt")
+                .text("这是p中的内容"));
+    });
+</script>
+</body>
+</html>

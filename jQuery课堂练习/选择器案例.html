@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选择器案例</title>
+    <script type="text/javascript" src="jquery-1.11.3.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-size: 14px;
+        }
+        ul{
+            list-style: none;
+        }
+        body{
+            text-align: center;
+        }
+        a{
+            text-decoration: none;
+            color: #04f;
+        }
+        a:hover{
+            color: #b61d1d;
+        }
+        .categoryBox{
+            width: 600px;
+            height: 120px;
+            margin: 100px auto;
+            text-align: center;
+            border: 1px solid #1a1a1a;
+        }
+        .categoryBox ul li{
+            display: block;
+            float: left;
+            width: 150px;
+            line-height: 30px;
+        }
+        .showmore{
+            clear: both;
+            text-align: center;
+
+        }
+        .showmore a{
+            display: block;
+            width: 100px;
+            margin: 0 auto;
+            border:1px solid #1a1a1a;
+            line-height: 24px;
+        }
+    </style>
+</head>
+<body>
+<div class="categoryBox">
+    <ul>
+        <li><a href="javascript:;">华硕</a></li>
+        <li><a href="javascript:;">联想</a></li>
+        <li><a href="javascript:;">神舟</a></li>
+        <li><a href="javascript:;">弘基</a></li>
+        <li><a href="javascript:;">七彩虹</a></li>
+        <li><a href="javascript:;">蓝宝石</a></li>
+        <li><a href="javascript:;">微鲸</a></li>
+        <li><a href="javascript:;">昂达</a></li>
+        <li><a href="javascript:;">胜宇</a></li>
+        <li><a href="javascript:;">丽台</a></li>
+        <li><a href="javascript:;">映众</a></li>
+        <li><a href="javascript:;">华擎</a></li>
+        <li><a href="javascript:;">神舟</a></li>
+        <li><a href="javascript:;">弘基</a></li>
+        <li><a href="javascript:;">七彩虹</a></li>
+        <li><a href="javascript:;">蓝宝石</a></li>
+    </ul>
+    <div class="showmore">
+        <a href="javascript:;"><span>显示更多</span></a>
+    </div>
+</div>
+
+<script>
+    //默认状态下只显示前两行
+    var $hidLis=$('.categoryBox>ul>li:gt(7)');
+    $hidLis.hide();
+    //给span加点击事件，实现内容的展现/隐藏的切换
+    $('.showmore>a>span').click(function () {
+        //使用参数中的选择器来判断
+        if($hidLis.is(':hidden'))
+        {
+            $hidLis.show();
+            $('.showmore>a>span').text("收起");
+        }else{
+            $hidLis.hide();
+            $('.showmore>a>span').text("显示更多");
+        }
+
+    });
+</script>
+</body>
+</html>

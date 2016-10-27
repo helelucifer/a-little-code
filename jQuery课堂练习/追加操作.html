@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>追加操作</title>
+
+    <script src="jquery-1.11.3.js"></script>
+</head>
+<body>
+<button id="btn1">append</button>
+<button id="btn2">prepend</button>
+<button id="btn3">appendTo</button>
+<button id="btn4">prependTo</button>
+
+<button id="btn5">before</button>
+<button id="btn6">after</button>
+<button id="btn7">insertBefore</button>
+<button id="btn8">insertAfter</button>
+
+<br><br>
+<div id="cityDiv">
+    <ul id="cul">
+        <li id="bj">北京</li>
+        <li id="ss">上海</li>
+        <li id="sz">深圳</li>
+        <li id="cs">长沙</li>
+        <li id="gz">广州</li>
+    </ul>
+
+    <ul id="pul">
+        <li id="hn">湖南</li>
+        <li id="gd">广东</li>
+        <li id="hb">湖北</li>
+        <li id="jx">江西</li>
+        <li id="sc">四川</li>
+    </ul>
+</div>
+<script>
+
+    //内部插入，添加的成为子节点
+    $("#btn1").click(function () {
+        $("#sz").append($("#gd"));
+    });
+    //内部插入，添加的成为父节点
+    $("#btn2").click(function () {
+        $("#sz").prepend($("#gd"));
+    });
+
+
+    $("#btn3").click(function () {
+        $("#sz").appendTo($("#gd"));
+    });
+    $("#btn4").click(function () {
+        $("#sz").prependTo($("#gd"));
+    });
+
+    //外部插入，添加的成为兄弟节点
+    $("#btn5").click(function () {
+        $("#sz").before($("#hn"));
+    });
+    $("#btn6").click(function () {
+        $("#sz").after($("#gd"));
+    });
+</script>
+
+</body>
+</html>

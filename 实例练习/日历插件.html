@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>日历插件</title>
+    <script src="js/jquery-1.11.3.js"></script>
+    <script src="js/My97DatePicker/WdatePicker.js"></script>
+</head>
+<body>
+<input type="text" class="Wdate">
+
+<script>
+//    WdatePicker(option)
+//    option选项
+//    作用  用来配置日历控件
+//    写法 （name:value）
+//    属性名：
+//        dateFmt  设置日期的显示格式
+//            默认格式  yyyy-MM-dd  hh:mm:ss（24小时制）
+//            realDateFmt  设置日期对应的计算机格式  一般不改变
+//            minDate 设置最小年份
+//            isShowWeek  是否显示周
+//            isShowClear  是否显示清空按钮
+//            isShowOK   是否显示确认键
+//            isShowToday   是否显示今天按钮
+
+    $(".Wdate").click(function () {
+        WdatePicker({
+            dateFmt:"yyyy年MM月dd日",
+            isShowWeek:true,
+            isShowClear:true,
+            isShowOK:true,
+            isShowToday:false
+
+        });
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>折叠菜单</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-size: 14px;
+            font-family: "Microsoft YaHei", Helvetica, sans-serif;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+        ul,li{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .menu{
+            margin:20px auto;
+            width: 100px;
+            border: 1px solid #53bcff;
+        }
+        h2{
+            font-size: 15px;
+            height: 25px;
+            line-height: 25px;
+            text-align: center;
+            border-bottom: 1px solid #53bcff;
+            background-color: aqua;
+            cursor: pointer;
+        }
+        .menuList{
+            display: none;
+        }
+        .menuList li{
+            text-align: center;
+            height: 25px;
+            line-height: 25px;
+        }
+    </style>
+</head>
+
+<body>
+<div class="menu">
+     <ul>
+         <li>
+             <h2>衬衫</h2>
+             <ul class="menuList">
+                 <li>短袖衬衫</li>
+                 <li>长袖衬衫</li>
+                 <li>男款衬衫</li>
+                 <li>女款衬衫</li>
+             </ul>
+         </li>
+         <li>
+             <h2>上衣</h2>
+             <ul class="menuList">
+                 <li>夹克</li>
+                 <li>皮衣</li>
+                 <li>羽绒服</li>
+                 <li>卫衣</li>
+             </ul>
+         </li>
+         <li>
+             <h2>下装</h2>
+             <ul class="menuList">
+                 <li>牛仔裤</li>
+                 <li>西裤</li>
+                 <li>短裤</li>
+                 <li>裙子</li>
+             </ul>
+         </li>
+     </ul>
+</div>
+<script src="jquery-1.11.3.js"></script>
+<script>
+    $(".menu h2").on("click",function () {
+        $(this).next().slideToggle(500)
+                .parent()
+                .siblings()
+                .children("ul")
+                .slideUp(500);
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自定义动画</title>
+    <script src="jquery-1.11.3.js"></script>
+    <style>
+        div{
+            width: 300px;
+            height: 300px;
+            border:1px solid black;
+            background-color: aqua;
+            position: relative;
+            top: 100px;
+            left:200px;
+        }
+    </style>
+</head>
+<body>
+<button>自定义动画</button>
+
+<br>
+<br>
+<div></div>
+<script>
+    $("button:first").click(function () {
+        $("div").animate({
+            "width":50
+        },{"duration":1000,
+            "queue":true
+        }).animate({
+            "height":50
+        },{
+            "duration":1000,
+            "queue":true
+        });
+    });
+
+
+</script>
+</body>
+</html>
